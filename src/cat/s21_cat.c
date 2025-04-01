@@ -1,32 +1,4 @@
-#include <getopt.h>
-#include <stdio.h>
-#include <stdlib.h>
-
-typedef struct {
-  int b;
-  int e;
-  int n;
-  int s;
-  int t;
-  int E;
-  int T;
-  int v;
-} Flags;
-
-Flags parse_flags(int argc, char *argv[]);
-void read_print(char *filename, Flags options);
-
-int main(int argc, char *argv[]) {
-  if (argc < 2) {
-    printf("Usage: cat [-benstv] [file ...]\n");
-    exit(1);
-  }
-  Flags options = parse_flags(argc, argv);
-  for (int i = optind; i < argc; i++) {
-    read_print(argv[i], options);
-  }
-  return 0;
-}
+#include "s21_cat.h"
 
 Flags parse_flags(int argc, char *argv[]) {
   Flags options = {0, 0, 0, 0, 0, 0, 0, 0};
